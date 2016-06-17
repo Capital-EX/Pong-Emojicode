@@ -1,1 +1,197 @@
-
+📦 SDL 🔴
+🌮
+    🔳 is a basic rectangle.
+    useful for collisions.
+    Rectangles have:
+        x y w (width) h (height) and static?
+    static? is used during collisions to determen
+        how to move objects.
+🌮
+👴 There is no absulote value in Emojicode
+🐋 🚄 🍇
+    🐇🐖 🙌 n 🚂 ➡️ 🚂 🍇
+        🍊 ◀️ n 0 🍇
+            🍎 ➖ 0 n
+        🍉
+        🍓 🍇
+            🍎 n
+        🍉
+    🍉
+🍉
+🐇 🔳 🍇
+    🍰 x 🚀
+    🍰 y 🚀
+    🍰 w 🚂
+    🍰 h 🚂
+    🍰 hw 🚂
+    🍰 hh 🚂
+    🍰 vx 🚀
+    🍰 vy 🚀
+    🍰 physic_type 🔡
+    🐈 🆕 @x 🚀 @y 🚀 @w 🚂 @h 🚂 @physic_type 🔡 🍇
+        🍮 x @x
+        🍮 y @y
+        🍮 w @w
+        🍮 h @h
+        🍮 hw ➗ @w 2
+        🍮 hh ➗ @h 2
+        🍮 vx 200.0
+        🍮 vy 200.0
+        🍮 physic_type @physic_type
+    🍉
+    🐖 📏 ➡️ 🍨🐚⚪ 🍇
+        🍎 🍨 x y w h hh hw 🍆
+    🍉
+    🐖 ✍ @x 🍬🚀 @y 🍬🚀 @w 🍬🚂 @h 🍬🚂 🍇
+        🍊 ❎☁️@x 🍇
+            🍮 x 🍺@x
+        🍉
+        🍊 ❎☁️@y 🍇
+            🍮 y 🍺@y
+        🍉
+        🍊 ❎☁️@w 🍇
+            🍮 w 🍺@w
+            🍮 hw ➗ w 2
+        🍉
+        🍊 ❎☁️@h 🍇
+            🍮 h 🍺@h
+            🍮 hh ➗ h 2
+        🍉
+    🍉
+    🌮
+        returns an object physic type.
+    🌮
+    🐖 ⚓ ➡️ 🔡 🍇
+        🍎 physic_type
+    🍉
+    🌮
+        Find the collision between to objects.
+        This is first done by finding the distances between the rectangles
+            from thier centers:
+            distx = abs( (x1 + hw1) - (x2 + hw2) )
+            disty = abs( (y1 + hh1) - (y2 + hh2) )
+        Second finding the separtion distances:
+            sep_x = hw1 + hw2
+            sep_y = hh1 + hh2
+        If sep_x < distx and sep_y < disty, find overlap:
+            over_x = abs( dist_x - sep_x )
+            over_y = abs( dist_y - sep_y )
+        Check for static objects:
+            if a.static?                -> resolve b
+            if b.static?                -> resolve a
+            if b.static? and a.static?  -> do nothing
+        Else compare area:
+            if a.area > b.area  -> resolve b
+            elsewise            -> resolve a
+    🌮
+    🐖 🛌 other 🔳 ➡ 👌 🍇
+        🍰 d_other 🍨🐚⚪
+        🍮 d_other 📏other
+        👴 Fun fact: 🐚⚪ destroy type information
+        👴 Results: Crap-ton of unwrap-downcasting
+        🍦 o_x 🍺🔲 🍺🐽 d_other 0 🚀
+        🍦 o_floor_x 🍩🚴🚄 o_x
+        😀 🔤OK🔤
+        🍦 o_y 🍺🔲 🍺🐽 d_other 1 🚀
+        🍦 o_floor_y 🍩🚴🚄 o_y
+        😀 🔤OK🔤
+        🍦 o_w 🍺🔲 🍺🐽 d_other 2 🚂
+        😀 🔤OK🔤
+        🍦 o_h 🍺🔲 🍺🐽 d_other 3 🚂
+        😀 🔤OK🔤
+        🍦 o_hw 🍺🔲 🍺🐽 d_other 4 🚂
+        😀 🔤OK🔤
+        🍦 o_hh 🍺🔲 🍺🐽 d_other 5 🚂
+        😀 🔤OK🔤
+        🍦 floor_x 🍩🚴🚄 x
+        🍦 floor_y 🍩🚴🚄 y
+        🍦 dist_x  ➖ ➕ o_floor_x o_hw ➖ floor_x hw
+        🍦 dist_y  ➖ ➕ o_floor_y o_hh ➖ floor_y hh
+        🍦 sep_x ➕ hh o_hh
+        🍦 sep_y ➕ hw o_hw
+        🍦 over_x 🍩🙌🚄 ➖ 🍩🙌🚄 dist_x sep_x
+        🍦 over_y 🍩🙌🚄 ➖ 🍩🙌🚄 dist_y sep_y
+        👵
+            if other.physic_type() == bat then
+                if over_x < over_y then
+                    if dist_x < 0 then
+                        self.set_values( x + dist_x, nil, nil, nil )
+                    else
+                        self.set_values( x - dist_x, nil, nil, nil )
+                    end
+                else
+                    if dist_x < 0 then
+                        self.set_values( nil, y + dist_y, nil, nil )
+                    else
+                        self.set_values( nil, y + dist_y, nil, nil )
+                    end
+                end
+            else
+                -- repeat for other instead of self
+            end
+        👵
+        🍊 🎊 ➡️ over_x sep_x ➡️ over_y sep_y  🍇
+            🍎 👎
+        🍉
+        🍊 😛 ⚓ other 🔤bat🔤  🍇
+            🍊 ◀️ over_x over_y  🍇
+                🍊 ◀️ dist_x 0  🍇
+                    ✍ 🐕 ➕ x 🚀dist_x ⚡ ⚡ ⚡
+                🍉 🍓 🍇
+                    ✍ 🐕 ➖ x 🚀dist_x ⚡ ⚡ ⚡
+                🍉
+            🍉
+            🍓 🍇
+                🍊 ◀️ dist_y 0  🍇  👴 if dist_y < 0
+                    ✍ 🐕 ⚡ ➕ y 🚀dist_y ⚡ ⚡
+                🍉 🍓 🍇
+                    ✍ 🐕 ⚡ ➖ y 🚀dist_y ⚡ ⚡
+                🍉
+            🍉
+        🍉 🍓 🍇
+            🍊 ◀️ over_x over_y  🍇
+                🍊 ◀️ dist_x 0  🍇
+                    ✍ other ➕ x 🚀dist_x ⚡ ⚡ ⚡
+                🍉 🍓 🍇
+                    ✍ other ➖ x 🚀dist_x ⚡ ⚡ ⚡
+                🍉
+            🍉 🍓 🍇
+                🍊 ◀️ dist_y 0  🍇  👴 if dist_y < 0
+                    ✍ other ⚡ ➕ y 🚀dist_y ⚡ ⚡
+                🍉 🍓 🍇
+                    ✍ other ⚡ ➖ y 🚀dist_y ⚡ ⚡
+                🍉
+            🍉
+        🍉
+        🍎 👍
+    🍉
+🍉
+🐇 🎾🔳 🍇
+🍉
+👴 There is no tennis ball emoji... so baseball it is
+🐇 ⚾🔳 🍇
+    🐖 👇 🍇
+    🍉
+🍉
+🐇🏃🍇
+    🍰 playerA 🎾
+    🍰 playerB 🎾
+    🍰 ball ⚾
+    🍰 quit 👌
+    🐇🐖 🏁 ➡️ 🚂 🍇
+        🍮 playerA 🔷🎾🆕 100.0 100.0 25 100 🔤bat🔤
+        🍮 ball 🔷⚾🆕 80.0 100.0 25 25 🔤ball🔤
+        🍊 🛌 ball playerA 🍇
+            😀 🔤True🔤
+        🍉 🍓 🍇
+            😀 🔤False🔤
+        🍉
+        🍎 0
+    🍉
+    🐇🐖 🎨 🍇
+        👴 Draw method. It is ran after update. All drawing should happen here
+    🍉
+    🐇🐖 🔃 🍇
+        👴 Update method. All updates should happen here
+    🍉
+🍉
