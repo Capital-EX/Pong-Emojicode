@@ -91,18 +91,12 @@
         👴 Results: Crap-ton of unwrap-downcasting
         🍦 o_x 🍺🔲 🍺🐽 d_other 0 🚀
         🍦 o_floor_x 🍩🚴🚄 o_x
-        😀 🔤OK🔤
         🍦 o_y 🍺🔲 🍺🐽 d_other 1 🚀
         🍦 o_floor_y 🍩🚴🚄 o_y
-        😀 🔤OK🔤
         🍦 o_w 🍺🔲 🍺🐽 d_other 2 🚂
-        😀 🔤OK🔤
         🍦 o_h 🍺🔲 🍺🐽 d_other 3 🚂
-        😀 🔤OK🔤
         🍦 o_hw 🍺🔲 🍺🐽 d_other 4 🚂
-        😀 🔤OK🔤
         🍦 o_hh 🍺🔲 🍺🐽 d_other 5 🚂
-        😀 🔤OK🔤
         🍦 floor_x 🍩🚴🚄 x
         🍦 floor_y 🍩🚴🚄 y
         🍦 dist_x  ➖ ➕ o_floor_x o_hw ➖ floor_x hw
