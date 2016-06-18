@@ -34,21 +34,20 @@
         🍮 h @h
         🍮 hw ➗ @w 2
         🍮 hh ➗ @h 2
-        🍮 vx 200.0
-        🍮 vy 200.0
+        🍮 vx 0.0
+        🍮 vy 0.0
         🍮 physic_type @physic_type
     🍉
     🐖 📏 ➡️ 🍨🐚⚪ 🍇
-        🍎 🍨 x y w h hh hw 🍆
+        🍎 🍨 x y w h hh hw vx vy 🍆
     🍉
-    🐖 ✍ @x 🍬🚀 @y 🍬🚀 @w 🍬🚂 @h 🍬🚂 🍇
+    🐖 ✍ @x 🍬🚀 @y 🍬🚀 @w 🍬🚂 @h 🍬🚂 @vx 🍬🚀 @vy 🍬🚀🍇
         🍊 ❎☁️@x 🍇
             🍮 x 🍺@x
-            😀 🍪 🔤Setting Y:🔤 🔷🔡🚂 🍩🚴🚄 x 10 🍪
         🍉
         🍊 ❎☁️@y 🍇
+            😀 🔷🔡🚀 🍺@y 10
             🍮 y 🍺@y
-            😀 🍪 🔤Setting Y:🔤 🔷🔡🚂 🍩🚴🚄 y 10 🍪
         🍉
         🍊 ❎☁️@w 🍇
             🍮 w 🍺@w
@@ -57,6 +56,12 @@
         🍊 ❎☁️@h 🍇
             🍮 h 🍺@h
             🍮 hh ➗ h 2
+        🍉
+        🍊 ❎☁️@vx 🍇
+            🍮 vx 🍺@vx
+        🍉
+        🍊 ❎☁️@vy 🍇
+            🍮 vy 🍺@vy
         🍉
     🍉
     🌮
@@ -95,31 +100,31 @@
         🍊 😛 ⚓ other 🔤bat🔤  🍇
             🍊 ◀️ over_x over_y  🍇
                 🍊 ◀️ dist_x 0  🍇
-                    ✍ 🐕 ➕ x 🚀dist_x ⚡ ⚡ ⚡
+                    ✍ 🐕 ➕ x 🚀dist_x ⚡ ⚡ ⚡ ⚡ ⚡
                 🍉 🍓 🍇
-                    ✍ 🐕 ➖ x 🚀dist_x ⚡ ⚡ ⚡
+                    ✍ 🐕 ➖ x 🚀dist_x ⚡ ⚡ ⚡ ⚡ ⚡
                 🍉
             🍉
             🍓 🍇
                 🍊 ◀️ dist_y 0  🍇  👴 if dist_y < 0
-                    ✍ 🐕 ⚡ ➕ y 🚀dist_y ⚡ ⚡
+                    ✍ 🐕 ⚡ ➕ y 🚀dist_y ⚡ ⚡ ⚡ ⚡
                 🍉 🍓 🍇
-                    ✍ 🐕 ⚡ ➖ y 🚀dist_y ⚡ ⚡
+                    ✍ 🐕 ⚡ ➖ y 🚀dist_y ⚡ ⚡ ⚡ ⚡
                 🍉
             🍉
             🍎 👍
         🍉 🍓 🍇
             🍊 ◀️ over_x over_y  🍇
                 🍊 ◀️ dist_x 0  🍇
-                    ✍ other ➕ o_x 🚀dist_x ⚡ ⚡ ⚡
+                    ✍ other ➕ o_x 🚀dist_x ⚡ ⚡ ⚡ ⚡ ⚡
                 🍉 🍓 🍇
-                    ✍ other ➖ o_x 🚀dist_x ⚡ ⚡ ⚡
+                    ✍ other ➖ o_x 🚀dist_x ⚡ ⚡ ⚡ ⚡ ⚡
                 🍉
             🍉 🍓 🍇
                 🍊 ◀️ dist_y 0  🍇  👴 if dist_y < 0
-                    ✍ other ⚡ ➕ o_y 🚀dist_y ⚡ ⚡
+                    ✍ other ⚡ ➕ o_y 🚀dist_y ⚡ ⚡ ⚡ ⚡
                 🍉 🍓 🍇
-                    ✍ other ⚡ ➖ o_y 🚀dist_y ⚡ ⚡
+                    ✍ other ⚡ ➖ o_y 🚀dist_y ⚡ ⚡ ⚡ ⚡
                 🍉
             🍉
             🍎 👍
@@ -135,6 +140,29 @@
         🍦 h 🍺🔲🍺🐽 dementions 3 🚂
         🎨 renderer 255 255 255 255
         ◾ renderer 🔷◾🆕 x y w h
+    🍉
+
+    🐖 ⌨ e ⌨ 🍇
+        😀 🔷 🔡 🔣 🔣e
+        🍊 🎊 🎉 😛 🔣e 🔟w 😛 🔣e 🔟W ⬇e 🍇
+            😀 🔤True🔤
+        🍉 🍓 🍇
+            😀 🔤False🔤
+        🍉
+        🍊 🎊 🎉  😛 🔣e 🔟w 😛 🔣e 🔟W ⬇e 🍇
+            ✍ 🐕 ⚡ ⚡ ⚡ ⚡ ⚡ -0.2
+        🍉🍋 🎊 🎉 😛 🔣e 🔟s 😛 🔣e 🔟S ⬇e 🍇
+            ✍ 🐕 ⚡ ⚡ ⚡ ⚡ ⚡ 0.2
+        🍉 🍋 🎉 🎊 🎉 😛 🔣e 🔟s 😛 🔣e 🔟S ❎⬇e 🎊 🎉 😛 🔣e 🔟w 😛 🔣e 🔟W ❎⬇e 🍇
+            ✍ 🐕 ⚡ ⚡ ⚡ ⚡ ⚡ 0.0
+        🍉
+    🍉
+
+    🐖 📈 🍇
+        🍦 dementions 📏🐕
+        🍦 y 🍺🔲🍺🐽 dementions 1 🚀
+        🍦 vy 🍺🔲🍺🐽 dementions 7 🚀
+        ✍ 🐕 ⚡ ➕ y vy ⚡ ⚡ ⚡ ⚡
     🍉
 🍉
 👴 There is no tennis ball emoji... so baseball it is
