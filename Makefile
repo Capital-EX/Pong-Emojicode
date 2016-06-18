@@ -1,2 +1,2 @@
 all:
-	emojicodec src/*.emojic
+	emojicodec src/main.emojic
